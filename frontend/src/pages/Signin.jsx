@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import axios from "axios";
+import { API_ENDPOINTS } from '../config/api';
 
 export const Signin = () => {
     const [username, setUsername] = useState("");
@@ -16,10 +17,10 @@ export const Signin = () => {
 
     const handleSignin = async () => {
         try {
-            const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
-                username,
-                password
-            });
+      const response = await axios.post(API_ENDPOINTS.USER_SIGNIN, {
+        username,
+        password
+      });
             
             login(response.data.user, response.data.token);
             

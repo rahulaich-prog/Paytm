@@ -30,10 +30,7 @@ const handleTransfer = async () => {
     }
 };
 
-// Update the button onClick
-<button onClick={handleTransfer} className="...">
-    Initiate Transfer
-</button>
+
 
 module.exports = {
     authMiddleware

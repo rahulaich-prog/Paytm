@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import axios from "axios";
+import { API_ENDPOINTS } from '../config/api';
 import { useState } from 'react';
 
 export const SendMoney = () => {
@@ -42,7 +43,7 @@ export const SendMoney = () => {
                     />
                     </div>
                     <button onClick={() => {
-                        axios.post("http://localhost:3000/api/v1/account/transfer", {
+                        axios.post(API_ENDPOINTS.ACCOUNT_TRANSFER, {
                             to: id,
                             amount
                         }, {

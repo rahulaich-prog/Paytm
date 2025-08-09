@@ -5,6 +5,7 @@ import { Heading } from "../components/Heading"
 import { InputBox } from "../components/InputBox"
 import { SubHeading } from "../components/SubHeading"
 import axios from "axios";
+import { API_ENDPOINTS } from '../config/api';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,12 +19,12 @@ export const Signup = () => {
 
     const handleSignup = async () => {
         try {
-            const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
-                username,
-                firstName,
-                lastName,
-                password
-            });
+      const response = await axios.post(API_ENDPOINTS.USER_SIGNUP, {
+        username,
+        firstName,
+        lastName,
+        password
+      });
             
             login(response.data.user, response.data.token);
             
